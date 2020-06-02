@@ -11,7 +11,6 @@ pipeline {
 
 				echo "Build"
 				
-
 			}
 
 		}
@@ -21,9 +20,7 @@ pipeline {
 			steps{
 
 				echo "Test"
-			
-
-
+		
 			}
 
 		}
@@ -34,9 +31,24 @@ pipeline {
 
 				echo " Integration Test"
 
-
 			}
 
+		}
+	} post {
+
+		always {
+
+			echo " I run always"
+		}
+
+		success {
+
+			echo " I run when the build is successful"
+		}
+
+		failure {
+
+			echo "I run when build fails"
 		}
 	}
 
