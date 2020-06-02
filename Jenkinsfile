@@ -8,7 +8,7 @@ pipeline {
 
 			steps{
 
-				echoi "Build"
+				echo "Build"
 				
 			}
 
@@ -28,7 +28,7 @@ pipeline {
 
 			steps{
 
-				echo " Integration Test"
+				echoi " Integration Test"
 			}
 
 		}
