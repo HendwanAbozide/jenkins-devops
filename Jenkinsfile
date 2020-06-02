@@ -1,6 +1,8 @@
 
 pipeline {
 
+	emailext body: 'Test here!!!', subject: 'first pipeline', to: 'Hendwan_fencing@hotmail.com'
+
 	agent any
 
 	stages{
