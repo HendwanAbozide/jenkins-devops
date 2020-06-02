@@ -4,7 +4,7 @@ pipeline {
 
 	stages{
 
-		stage('Build'){
+		stagei('Build'){
 
 			steps{
 
@@ -49,6 +49,7 @@ pipeline {
 		failure {
 
 			echo "I run when build fails"
+			emailext body: "Building has failed!", subject: 'FAILURE', to: 'hendwan_fencing@hotmail.com'
 
 		}
 	}
