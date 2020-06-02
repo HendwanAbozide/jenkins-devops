@@ -4,7 +4,7 @@ pipeline {
 
 	agent {
 		docker {
-			image 'node:12-alphine3.10'
+			image 'node:12-alphine'
 
 		}
 
