@@ -49,7 +49,7 @@ pipeline {
 		failure {
 
 			echo "I run when build fails"
-			emailext body: 'Building failed!', subject: 'Failure', to: 'hendwan_fencing@hotmail.com'
+			emailext body: 'dfdfdfdfdfd', subject: 'Failure', to: 'hendwanabozide@gmail.com'
 
 		}
 	}
