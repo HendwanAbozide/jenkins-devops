@@ -1,42 +1,51 @@
 
 pipeline {
 
-	emailext body: 'Test here!!!', subject: 'first pipeline', to: 'Hendwan_fencing@hotmail.com'
-
 	agent any
 
-	stages{
+    try{
 
-		stage('Build'){
 
-			steps{
+		stages{
 
-				echo "Build"
-				
-			}
+			stage('Build'){
 
-		}
+				steps{
 
-		stage('Test'){
-
-			steps{
-
-				echo "Test"
-		
-			}
-
-		}
-
-		stage('integration test'){
-
-			steps{
-
-				echo " Integration Test"
+					echo "Build"
+					
+				}
 
 			}
 
-		}
-	} post {
+			stage('Test'){
+
+				steps{
+
+					echo "Test"
+			
+				}
+
+			}
+
+			stage('integration test'){
+
+				steps{
+
+					echo " Integration Test"
+
+				}
+
+			}
+		} 
+	} catch (err){
+
+
+		emailext body: "Caught : ${err}", subject: 'first pipeline', to: 'Hendwan_fencing@hotmail.com'
+
+	}
+
+	post {
 
 		always {
 
