@@ -38,7 +38,7 @@ pipeline {
 
 		always {
 
-			echo " I run always"
+			echo " Testing...."
 		}
 
 		success {
@@ -49,7 +49,7 @@ pipeline {
 		failure {
 
 			echo "I run when build fails"
-			emailext body: "Building has failed!", subject: 'FAILURE', to: 'hendwan_fencing@hotmail.com'
+			emailext body: 'Building failed!', subject: 'Failure', to: 'hendwan_fencing@hotmail.com'
 
 		}
 	}
