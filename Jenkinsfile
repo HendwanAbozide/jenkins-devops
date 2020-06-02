@@ -1,4 +1,3 @@
-
 pipeline {
 
 	agent any
@@ -30,11 +29,12 @@ pipeline {
 			steps{
 
 				echo " Integration Test"
-
 			}
 
 		}
-	} post {
+	} 
+	
+	post {
 
 		always {
 
@@ -49,6 +49,7 @@ pipeline {
 		failure {
 
 			echo "I run when build fails"
+
 		}
 	}
 
