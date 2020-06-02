@@ -3,49 +3,38 @@ pipeline {
 
 	agent any
 
-    try{
+	stages{
 
+		stage('Build'){
 
-		stages{
+			steps{
 
-			stage('Build'){
+				echo "Build"
+				
+			}
 
-				steps{
+		}
 
-					echo "Build"
-					
-				}
+		stage('Test'){
+
+			steps{
+
+				echo "Test"
+		
+			}
+
+		}
+
+		stage('integration test'){
+
+			steps{
+
+				echo " Integration Test"
 
 			}
 
-			stage('Test'){
-
-				steps{
-
-					echo "Test"
-			
-				}
-
-			}
-
-			stage('integration test'){
-
-				steps{
-
-					echo " Integration Test"
-
-				}
-
-			}
-		} 
-	} catch (err){
-
-
-		emailext body: "Caught : ${err}", subject: 'first pipeline', to: 'Hendwan_fencing@hotmail.com'
-
-	}
-
-	post {
+		}
+	} post {
 
 		always {
 
