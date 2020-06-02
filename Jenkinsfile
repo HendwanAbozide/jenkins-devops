@@ -28,7 +28,7 @@ pipeline {
 
 			steps{
 
-				echoy " Integration Test"
+				echoi " Integration Test"
 			}
 
 		}
@@ -49,7 +49,7 @@ pipeline {
 		failure {
 
 			echo "I run when build fails"
-			emailext body: 'dfdfdfdfdfd', subject: 'Failure', to: 'hendwanabozide@gmail.com'
+			emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwan_fencing@hotmail.com'
 
 		}
 	}
