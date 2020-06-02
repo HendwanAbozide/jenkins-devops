@@ -4,11 +4,11 @@ pipeline {
 
 	stages{
 
-		stagei('Build'){
+		stage('Build'){
 
 			steps{
 
-				echo "Build"
+				echoi "Build"
 				
 			}
 
