@@ -28,7 +28,7 @@ pipeline {
 
 			steps{
 
-				echoi " Integration Test"
+				echoy " Integration Test"
 			}
 
 		}
