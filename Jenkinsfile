@@ -10,38 +10,46 @@ pipeline {
 		}
 
 	}
+    try{
+		stages{
 
-	stages{
+			stage('Build'){
 
-		stage('Build'){
+				steps{
+					sh 'node --version'
+					echo "Build"
+					
+				}
 
-			steps{
-				sh 'node --version'
-				echo "Build"
-				
 			}
 
-		}
+			staige('Test'){
 
-		stage('Test'){
+				steps{
 
-			steps{
+					echo "Test"
+			
+				}
 
-				echo "Test"
-		
 			}
 
-		}
+			stage('integration test'){
 
-		stage('integration test'){
+				steps{
 
-			steps{
+					echo " Integration Test"
+				}
 
-				echo " Integration Test"
 			}
+		} 
+	}
 
-		}
-	} 
+	catch (err) {
+        echo "Failed: ${err}"
+		emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwanabozide@gmail.com'
+
+    }
+
 	
 	post {
 
