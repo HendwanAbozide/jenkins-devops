@@ -1,56 +1,51 @@
 pipeline {
 
-	// agent any
+	agent any
 
-	agent {
+	// agent {
 		
-		docker {
-			image 'node:12.17'
+	// 	docker {
+	// 		image 'node:12.17'
 
-		}
+	// 	}
 
-	}
+	// }
 
 	stages{
 
-		try{
+		stage('Build'){
 
-			stage('Build'){
+			steps{
 
-				steps{
-					sh 'node --version'
-					echo "Build"
-					
-				}
-
-			}
-
-			stagie('Test'){
-
-				steps{
-
-					echo "Test"
-			
-				}
+				// sh 'node --version'
+				echo "Build"
+				echo "PATH - $PATH"
+				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
+				echo "$env.BUILD_ID"
+				echo "$env.BUILD_TAG"
 
 			}
 
-			stage('integration test'){
-
-				steps{
-
-					echo " Integration Test"
-				}
-
-			}
 		}
 
-		catch(all) {
-            currentBuild.result='FAILURE'
-			emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwanabozide@gmail.com'
+		stage('Test'){
 
-        }
+			steps{
 
+				echo "Test"
+		
+			}
+
+		}
+
+		stage('integration test'){
+
+			steps{
+
+				echo " Integration Test"
+			}
+
+		}
 	} 
 	
 	post {
@@ -68,11 +63,9 @@ pipeline {
 		failure {
 
 			echo "I run when build fails"
-			emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwanabozide@gmail.com'
+			mail bcc: '', body: 'gfgfgfgfgfgf', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'hendwanabozide@gmail.com'
 
 		}
 	}
 
 }
-
-
