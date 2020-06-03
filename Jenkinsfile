@@ -33,7 +33,7 @@ pipeline {
 
 		}
 
-		stagei('integration test'){
+		stage('integration test'){
 
 			steps{
 
