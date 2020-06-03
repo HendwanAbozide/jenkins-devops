@@ -33,7 +33,7 @@ pipeline {
 
 		}
 
-		stage('integration test'){
+		stagei('integration test'){
 
 			steps{
 
@@ -58,7 +58,7 @@ pipeline {
 		failure {
 
 			echo "I run when build fails"
-			emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwan_fencing@hotmail.com'
+			emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwanabozide@gmail.com'
 
 		}
 	}
