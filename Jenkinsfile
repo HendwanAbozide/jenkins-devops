@@ -10,8 +10,10 @@ pipeline {
 		}
 
 	}
-    try{
-		stages{
+
+	stages{
+
+		try{
 
 			stage('Build'){
 
@@ -23,7 +25,7 @@ pipeline {
 
 			}
 
-			staige('Test'){
+			stagie('Test'){
 
 				steps{
 
@@ -41,15 +43,15 @@ pipeline {
 				}
 
 			}
-		} 
-	}
+		}
 
-	catch (err) {
-        echo "Failed: ${err}"
-		emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwanabozide@gmail.com'
+		catch(all) {
+            currentBuild.result='FAILURE'
+			emailext body: 'Build failed', subject: 'Failure', to: 'www.hendwanabozide@gmail.com'
 
-    }
+        }
 
+	} 
 	
 	post {
 
@@ -72,3 +74,5 @@ pipeline {
 	}
 
 }
+
+
