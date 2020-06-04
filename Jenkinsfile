@@ -13,11 +13,11 @@ pipeline {
 	// }
 
 	environment {
-		
-		PATH = '/usr/bin:$PATH'
+
+	
 		dockerhome= tool 'mydocker3'
 		nodehome = tool 'mynode3'
-		PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
+		PATH ='$dockerhome/usr/bin:$nodehome/usr/bin:$PATH'
 	}
 
 	stages{
