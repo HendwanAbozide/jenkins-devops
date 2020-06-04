@@ -1,21 +1,22 @@
 pipeline {
 
-	agent any
+	//agent any
 
-	// agent {
+	agent {
 		
-	// 	docker {
-	// 		image 'node:12.17'
+		docker {
+			image 'node:12.17'
 
-	// 	}
+		}
 
-	// }
-	environment {
-
-		dockerhome= tool 'mydocker3'
-		nodehome = tool 'mynode3'
-		PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
 	}
+
+	// environment {
+
+	// 	dockerhome= tool 'mydocker3'
+	// 	nodehome = tool 'mynode3'
+	// 	PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
+	// }
 
 	stages{
 
@@ -24,7 +25,7 @@ pipeline {
 			steps{
 
 				sh 'node --version'
-				sh 'docker --version'
+				// sh 'docker --version'
 				echo "Build"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
