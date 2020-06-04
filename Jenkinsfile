@@ -38,15 +38,15 @@ pipeline {
 
 		}
 
-		stage('Compile'){
+		// stage('Compile'){
 
-			steps{
+		// 	steps{
 
-				sh 'node clean compile'
+		// 		sh 'node clean compile'
 		
-			}
+		// 	}
 
-		}
+		// }
 
 
 		stage('Test'){
