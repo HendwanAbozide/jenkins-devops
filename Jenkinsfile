@@ -1,22 +1,24 @@
 pipeline {
 
-	//agent any
 
-	agent {
+	agent any
+
+	// agent {
 		
-		docker {
-			image 'node:12.17'
+	// 	docker {
+	// 		image 'node:12.17'
 
-		}
+	// 	}
 
-	}
-
-	// environment {
-
-	// 	dockerhome= tool 'mydocker3'
-	// 	nodehome = tool 'mynode3'
-	// 	PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
 	// }
+
+	environment {
+		
+		PATH = '/usr/bin:$PATH'
+		dockerhome= tool 'mydocker3'
+		nodehome = tool 'mynode3'
+		PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
+	}
 
 	stages{
 
