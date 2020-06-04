@@ -17,7 +17,7 @@ pipeline {
 	
 		dockerhome= tool 'mydocker3'
 		nodehome = tool 'mynode3'
-		PATH ='$dockerhome/usr/bin:$nodehome/usr/bin:$PATH'
+		PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
 	}
 
 	stages{
