@@ -6,7 +6,8 @@ pipeline {
 	agent {
 		
 		docker {
-			image 'node:12.17'
+			image 'maven:3.6.3'
+			// image 'node:12.17'
 
 		}
 
@@ -26,8 +27,9 @@ pipeline {
 
 			steps{
 
-				sh 'node --version'
+				// sh 'node --version'
 				// sh 'docker --version'
+				sh 'mvn --version'
 				echo "Build"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
@@ -38,22 +40,22 @@ pipeline {
 
 		}
 
-		// stage('Compile'){
+		stage('Compile'){
 
-		// 	steps{
+			steps{
 
-		// 		sh 'node clean compile'
+				sh 'mvn clean compile'  //like npm install
 		
-		// 	}
+			}
 
-		// }
+		}
 
 
 		stage('Test'){
 
 			steps{
 
-				sh 'node test'
+				sh 'mvn test'
 		
 			}
 
@@ -63,7 +65,7 @@ pipeline {
 
 			steps{
 
-				sh "node failsafe:integration-test failsafe:verify"
+				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 
 		}
