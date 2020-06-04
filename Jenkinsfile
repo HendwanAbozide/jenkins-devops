@@ -1,28 +1,28 @@
 pipeline {
 
 
-	agent any
+	// agent any
 
-	// agent {
+	agent {
 		
-	// 	docker {
-	// 		image 'node:12.17'
+		docker {
+			image 'node:12.17'
 
-	// 	}
+		}
 
-	// }
+	}
 
-	environment {
+	// environment {
 
 	
-		dockerhome= tool 'mydocker3'
-		nodehome = tool 'mynode3'
-		PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
-	}
+	// 	dockerhome= tool 'mydocker3'
+	// 	nodehome = tool 'mynode3'
+	// 	PATH ='$dockerhome/bin:$nodehome/bin:$PATH'
+	// }
 
 	stages{
 
-		stage('Build'){
+		stage('Checkout'){
 
 			steps{
 
@@ -38,11 +38,22 @@ pipeline {
 
 		}
 
+		stage('Compile'){
+
+			steps{
+
+				sh 'node clean compile'
+		
+			}
+
+		}
+
+
 		stage('Test'){
 
 			steps{
 
-				echo "Test"
+				sh 'node test'
 		
 			}
 
@@ -52,7 +63,7 @@ pipeline {
 
 			steps{
 
-				echo " Integration Test"
+				sh "node failsafe:integration-test failsafe:verify"
 			}
 
 		}
